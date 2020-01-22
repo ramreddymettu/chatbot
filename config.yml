@@ -1,0 +1,29 @@
+%YAML 1.1
+---
+language: en
+pipeline:
+- name: "WhitespaceTokenizer"
+  case_sensitive: false
+- name: "RegexFeaturizer"
+- name: "CRFEntityExtractor"
+- name: "EntitySynonymMapper"
+- name: "CountVectorsFeaturizer"
+- name: "CountVectorsFeaturizer"
+  analyzer: "char_wb"
+  min_ngram: 1
+  max_ngram: 4
+- name: "EmbeddingIntentClassifier"
+  hidden_layers_sizes_a : [256, 128]
+  hidden_layers_sizes_b : []
+  share_hidden_layers : true
+  batch_size : [64, 256]
+  droprate : 0.4
+  C_emb : 0.8
+  C2 : 0.002
+policies:
+- max_history: 4
+  name: KerasPolicy
+- name: MemoizationPolicy
+- name: FallbackPolicy
+- name: FormPolicy
+- name: MappingPolicy

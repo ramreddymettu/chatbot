@@ -1,0 +1,231 @@
+%YAML 1.1
+---
+actions:
+- chitchat_action
+- feedback_action
+- track_action
+- utter_affirm
+- utter_ask_account_number
+- utter_ask_confirm_account_number
+- utter_ask_confirm_email
+- utter_ask_continue
+- utter_ask_email
+- utter_ask_name
+- utter_automate_tasks
+- utter_bye
+- utter_chitchat
+- utter_doccopy_known_info
+- utter_fed_fund_inquiry
+- utter_feedback
+- utter_greet
+- utter_help
+- utter_loan_advance_inquiry
+- utter_mutual_fund_inquiry
+- utter_noworries
+- utter_postal_service_updates
+- utter_previous_msg
+- utter_reorder_check
+- utter_slots_email
+- utter_slots_lost_card
+- utter_slots_name_email
+- utter_slots_retirement_account
+- utter_slots_upgrade_account
+- utter_wrong_email
+entities:
+- account_number
+- doc_format
+- doc_type
+- email
+- feedback_value
+- name
+- trans_id
+forms:
+- account_number_form
+- document_form
+- proposal_form
+- retirement_account_form
+- status_form
+- upgrade_account_form
+intents:
+- adjust_distribution
+- affirm
+- automate_daily_tasks
+- cancel:
+    use_entities: false
+- chitchat
+- confirm:
+    use_entities: false
+- deny
+- document_copy
+- fed_fund_inquiry
+- feedback
+- greet
+- inform
+- loan_advance_inquiry
+- lost_card
+- mutual_fund_inquiry
+- postal_service_updates
+- reorder_check
+- send_proposal
+- status_enquiry
+- stop
+- thankyou
+- upgrade_account
+slots:
+  account_number:
+    type: unfeaturized
+  confirm_account_number:
+    type: unfeaturized
+  confirm_email:
+    type: unfeaturized
+  confirm_trans_id:
+    type: unfeaturized
+  doc_format:
+    type: unfeaturized
+  doc_type:
+    type: unfeaturized
+  email:
+    type: unfeaturized
+  feedback_value:
+    type: unfeaturized
+  known_slot:
+    type: unfeaturized
+  name:
+    type: unfeaturized
+  trans_id:
+    type: unfeaturized
+templates:
+  utter_affirm:
+  - text: OK, is there anything else I can help you with?
+  utter_ask_account_number:
+  - text: Can you tell me the account number?
+  utter_ask_confirm_account_number:
+  - buttons:
+    - payload: /confirm
+      title: 'Yes'
+    - payload: /cancel
+      title: 'No'
+    text: "Can you confirm that this information is correct?:\n Account number:  {account_number}"
+  utter_ask_confirm_email:
+  - buttons:
+    - payload: /confirm
+      title: 'Yes'
+    - payload: /cancel
+      title: 'No'
+    text: I'll send the proposal to {email}, OK?
+  utter_ask_confirm_trans_id:
+  - buttons:
+    - payload: /confirm
+      title: 'Yes'
+    - payload: /cancel
+      title: 'No'
+    text: "Can you confirm that this information is correct?:\n Transaction ID: {trans_id}"
+  utter_ask_continue:
+  - text: Can we continue?
+  utter_ask_doc_format:
+  - buttons:
+    - payload: '/inform{"doc_format": "pdf"}'
+      title: PDF
+    - payload: '/inform{"doc_format": "e-mail"}'
+      title: E-Mail
+    text: How would you like me to give you the copy?
+  utter_ask_doc_type:
+  - buttons:
+    - payload: '/inform{"doc_type": "check"}'
+      title: cheque
+    - payload: '/inform{"doc_type": "security certificate"}'
+      title: Security certificate
+    text: Which document do you want?
+  utter_ask_email:
+  - text: What's the email address?
+  utter_ask_known_slot:
+  - buttons:
+    - payload: /inform{"known_slot":"account_number"}
+      title: Account Number
+    - payload: /inform{"known_slot":"trans_id"}
+      title: Transaction ID
+    text: I need at least one of the following details
+  utter_ask_name:
+  - text: What's your client's name?
+  utter_ask_trans_id:
+  - text: Can you give me the transaction id?
+  utter_automate_tasks:
+  - image: https://i.imgur.com/tNhmVDT.png
+    text: Ok, [here](https://drive.google.com/file/d/0B_pJyZzLYc0rUVRXNGl4MWR5eXAtcW9hVE9kc0ZHQVU5dG1J/view?usp=sharing)
+      are instructions to access NetX 360's Embedded Robotics Process Automation solution
+      that can be used to automate common tasks.
+  utter_bye:
+  - text: Goodbye!
+  - text: Bye!
+  - text: Ciao!
+  - text: Bye, was nice talking to you!
+  utter_chitchat:
+  - text: Sorry! I'm designed to answer your queries related to BNYM.
+  utter_default:
+  - text: Sorry, I didn't get that. Could you please rephrase?
+  - text: I didn't understand, could you rephrase that?
+  - text: I'm sorry, but I didn't understand you. Could you please rephrase what you
+      just said?
+  - text: I'm afraid I didn't get what you just said. Could you rephrase that?
+  - text: I didn't quite get that, could you rephrase your message?
+  - text: Could you rephrase your message? I didn't get it, I'm sorry.
+  utter_doccopy_known_info:
+  - buttons:
+    - payload: '/inform{"known_slot": "trans_id"}'
+      title: Transaction ID
+    - payload: '/inform{"known_slot": "account_number"}'
+      title: Account Number
+    text: Which information do you have?
+  utter_fed_fund_inquiry:
+  - text: OK.  I can help you with that.  Please click [here](https://www.bnymellon.com/in/en/contact.jsp)
+      to complete the form to request information regarding a Fed Fund Wire.
+  utter_feedback:
+  - buttons:
+    - payload: /feedback{"feedback_value":"pos"}
+      text: Happy
+    - payload: /feedback{"feedback_value":"neg"}
+      text: Unhappy
+    text: please give your feedback on your experience so far.
+  utter_greet:
+  - text: Hello there! I am your BNYM assistant!🤖 How can I help?
+  utter_help:
+  - text: Is there anything I can help you with?
+  utter_loan_advance_inquiry:
+  - text: OK.  I can help you with that.  Please click [here](https://www.bnymellon.com/in/en/contact.jsp)
+      to complete the form to ask a question about LoanAdvance.
+  utter_mutual_fund_inquiry:
+  - text: OK.  I can help you with that.  Please click [here](https://www.bnymellon.com/in/en/contact.jsp)
+      to complete the form to cancel your Mutual Fund Transfer.
+  utter_noworries:
+  - text: No worries!😄
+  - text: You're welcome!😄
+  - text: I'm happy to help😄
+  utter_postal_service_updates:
+  - text: OK.  I can help you with that.  Please click [here](https://www.bnymellon.com/in/en/contact.jsp)
+      to complete the form to opt out of postal service updates.
+  utter_previous_msg:
+  - text: Hey, I haven't yet solved your previous query.Can i proceed with that?
+  utter_reorder_check:
+  - text: OK.  I can help you with that.  Please click [here](https://www.bnymellon.com/in/en/contact.jsp)
+      to complete the form to request a new checkbook for your client.
+  utter_slots_email:
+  - text: "I sent the proposal to:\n - Email-Id: {email}"
+  utter_slots_lost_card:
+  - text: "Alright. I am going to report and replace your client's card with following\
+      \ account number:\n - Account number: {account_number}"
+  utter_slots_name_email:
+  - text: "I sent the proposal to:\n - Name: {name}\n - Email-Id: {email}"
+  utter_slots_retirement_account:
+  - text: "Alright. I am going to place a request for  adjusting a distribution for\
+      \ the following account:\n - Account number: {account_number}"
+  utter_slots_status:
+  - text: "I'm searching for status transaction of:\n - Account Number: {account_number}"
+  utter_slots_upgrade_account:
+  - text: "Alright. I am going to upgrade your client's account with the following\
+      \ account number to platinum:\n - Account number: {account_number}"
+  utter_wrong_account_number:
+  - text: Account number is invalid, please try again.
+  utter_wrong_email:
+  - text: Email ID is invalid, please try again.
+  utter_wrong_trans_id:
+  - text: Transaction ID is invalid, please try again.
