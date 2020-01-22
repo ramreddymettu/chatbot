@@ -6,7 +6,8 @@ In this project i'm developing a Conversation agent(Chatbot) from scratch using 
 
 There two important components of Conversational agent is 
        
-         1) User intent prediction module 
-         2) Dialogue manager
-
+         1) Natural Language Understanding module
+            The responcibility of NLU module is to predict the user intention and to extract the additional avialable information such as entities.
+         2) Dialogue Manager
+            The responcibility of DM module is to maintain the contextual conversation by considering previous conversation using intent and entities. 
 
