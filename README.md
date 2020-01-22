@@ -1,1 +1,1 @@
-![RASA Logo](images/rasa.png)
+![Imgur](https://i.imgur.com/OTF8YaPt.png?1)
