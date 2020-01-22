@@ -11,15 +11,15 @@ There two important components of Conversational agent is
          2) Dialogue Manager
             The responcibility of DM module is to maintain the contextual conversation by considering previous conversation using intent and entities.
 
-**Project Enviroment: **
+**Project Enviroment :**
 Use the conda command **conda env create -f enviroment.yml**, to replace the training.
 
-**Data: **
+**Data :**
 Training data required for RASA 
      1) NLU data(intent and entity) is in **data/nlu** file.
      2) DM data is in **data/core** file.
 
-**Models: **
+**Models :**
 The trained models are in **models** folder.
 
 **Run Chatbot :**
